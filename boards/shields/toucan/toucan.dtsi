@@ -109,7 +109,8 @@
         device = <&glidepoint_split>;
         input-processors = <&zip_xy_scaler 250 100>;
         scroller {
-            layers = <1 2>;
+            // 4 is NAV in miryoku
+            layers = <4>;
             input-processors = <
                 &zip_x_scaler 1 20
                 &zip_xy_to_scroll_mapper
