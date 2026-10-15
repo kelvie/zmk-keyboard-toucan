@@ -4,16 +4,21 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: petejohanson
-      url-base: https://github.com/petejohanson/
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: beekeeb
+      url-base: https://github.com/beekeeb
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    - name: cirque-input-module
-      remote: petejohanson
+    # The Azoteq TPS43 touchpad: its driver, and the input processor that turns
+    # pinches into zoom keystrokes.
+    - name: zmk_driver_azoteq
+      remote: beekeeb
+      revision: main
+    - name: zmk-input-zoom
+      remote: beekeeb
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar

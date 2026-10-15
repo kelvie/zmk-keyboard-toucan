@@ -30,4 +30,10 @@ config ZMK_POINTING
 config RGBLED_WIDGET_BATTERY_LEVEL_HIGH
     default 40
 
+# The pad hangs off i2c0. Its driver enables itself from the devicetree node
+# (default y if DT_HAS_AZOTEQ_TPS43_ENABLED) but only *depends on* I2C, so the
+# bus has to be switched on here.
+config I2C
+    default y
+
 endif
