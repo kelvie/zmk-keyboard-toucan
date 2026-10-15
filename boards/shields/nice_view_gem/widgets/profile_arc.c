@@ -42,4 +42,13 @@ void draw_profile_status(lv_obj_t *canvas, const struct status_state *state) {
                                bg, fg, 1);
         }
     }
+
+    // Name of the active profile (CONFIG_ZMK_BT_PROFILE_<n>_NAME), in the gap
+    // between the WPM chart and the layer name.
+    const char *name = bt_profile_name(state->active_profile_index);
+    if (name[0] != '\0') {
+        lv_draw_label_dsc_t label_dsc;
+        init_label_dsc(&label_dsc, LVGL_FOREGROUND, &quinquefive_8, LV_TEXT_ALIGN_LEFT);
+        lv_canvas_draw_text(canvas, 12, 97, BT_DOT_X - 16, &label_dsc, (char *)name);
+    }
 }
